@@ -1,0 +1,25 @@
+{
+  "name": "express-conditional-middleware",
+  "version": "1.0.0",
+  "description": "Allow express middlewares to be overridden based on a condition.",
+  "main": "lib/conditional.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Elliott Foster <elliottf@codebrews.com> (http://codebrews.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "ghooks": "^0.3.2",
+    "gulp": "^3.8.11",
+    "gulp-istanbul": "^0.8.1",
+    "gulp-jshint": "^1.10.0",
+    "gulp-nodeunit": "0.0.5",
+    "jshint-stylish": "^1.0.1"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "gulp lint",
+      "pre-push": "gulp test"
+    }
+  }
+}
