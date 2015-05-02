@@ -1,6 +1,6 @@
 # Express Conditional Middleware
 
-![travis build](https://travis-ci.org/elliotttf/express-conditional-middleware.svg?branch=master)
+[![travis build](https://travis-ci.org/elliotttf/express-conditional-middleware.svg?branch=master)](https://travis-ci.org/elliotttf/express-conditional-middleware)
 
 This module provides a conditional middleware for express. Use as follows:
 
