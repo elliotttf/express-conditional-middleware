@@ -1,6 +1,6 @@
 {
   "name": "express-conditional-middleware",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allow express middlewares to be overridden based on a condition.",
   "main": "lib/conditional.js",
   "scripts": {

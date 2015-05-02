@@ -3,7 +3,7 @@
 This module provides a conditional middleware for express. Use as follows:
 
 ```javascript
-var conditional = require('express-conditional');
+var conditional = require('express-conditional-middleware');
 
 // Simple boolean method.
 app.use(conditional(true, function (req, res, next) {
