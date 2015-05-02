@@ -2,6 +2,7 @@
   "name": "express-conditional-middleware",
   "version": "1.0.1",
   "description": "Allow express middlewares to be overridden based on a condition.",
+  "repository": "https://github.com/elliotttf/express-conditional-middleware",
   "main": "lib/conditional.js",
   "scripts": {
     "test": "gulp test"
