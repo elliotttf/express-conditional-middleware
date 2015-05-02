@@ -1,5 +1,7 @@
 # Express Conditional Middleware
 
+![travis build](https://travis-ci.org/elliotttf/express-conditional-middleware.svg?branch=master)
+
 This module provides a conditional middleware for express. Use as follows:
 
 ```javascript
