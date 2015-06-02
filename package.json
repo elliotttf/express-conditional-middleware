@@ -12,6 +12,7 @@
   "devDependencies": {
     "ghooks": "^0.3.2",
     "gulp": "^3.8.11",
+    "gulp-coveralls": "^0.1.4",
     "gulp-istanbul": "^0.8.1",
     "gulp-jshint": "^1.10.0",
     "gulp-nodeunit": "0.0.5",

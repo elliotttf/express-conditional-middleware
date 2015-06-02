@@ -1,3 +1,4 @@
+var coveralls = require('gulp-coveralls');
 var gulp = require('gulp');
 var istanbul = require('gulp-istanbul');
 var nodeunit = require('gulp-nodeunit');
@@ -28,5 +29,9 @@ gulp.task('test', [ 'lint' ], function (cb) {
         .pipe(istanbul.writeReports()) // Creating the reports after tests runned
         .on('end', cb);
     });
+});
+
+gulp.task('coveralls', function (cb) {
+  gulp.src('coverage/**/lcov.info').pipe(coveralls());
 });
 

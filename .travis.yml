@@ -3,3 +3,5 @@ node_js:
   - "0.10"
   - "iojs"
   - "node"
+after_success: gulp coveralls
+
