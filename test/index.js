@@ -25,7 +25,7 @@ module.exports = {
   func: function (test) {
     test.expect(2);
 
-    var conditionFunc = function (req, res, next) {
+    var conditionFunc = function (req) {
       return req.working === true;
     };
 
