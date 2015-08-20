@@ -23,5 +23,8 @@
       "pre-commit": "gulp lint",
       "pre-push": "gulp test"
     }
+  },
+  "dependencies": {
+    "once": "^1.3.2"
   }
 }
