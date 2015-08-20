@@ -51,6 +51,31 @@ module.exports = {
       test.ok(true, 'Conditional function returned false.');
       test.done();
     });
+  },
+
+  funcOnce: function (test) {
+    test.expect(2);
+
+    var count = 0;
+
+    var conditionFunc = function (req, res, next) {
+      next();
+      return true;
+    };
+
+    var middleware = conditional(
+      conditionFunc,
+      function (req, res, next) {
+        test.ok(true, 'Conditional executed.');
+        next();
+        test.done();
+      }
+    );
+
+    middleware({}, {}, function () {
+      count++;
+      test.equal(count, 1, 'Middleware only executed once.');
+    });
   }
 };
 
