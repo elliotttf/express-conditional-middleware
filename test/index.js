@@ -36,7 +36,7 @@ module.exports = {
       }
     );
 
-    middleware({ working: true }, {}, function () {
+    middleware({working: true}, {}, function () {
       test.done();
     });
 
@@ -47,7 +47,7 @@ module.exports = {
       }
     );
 
-    middleware({ working: false }, {}, function () {
+    middleware({working: false}, {}, function () {
       test.ok(true, 'Conditional function returned false.');
       test.done();
     });
