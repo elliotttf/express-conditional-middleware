@@ -10,7 +10,7 @@
   "author": "Elliott Foster <elliottf@codebrews.com> (http://codebrews.com/)",
   "license": "MIT",
   "devDependencies": {
-    "ghooks": "0.3.2",
+    "ghooks": "1.0.2",
     "gulp": "3.9.0",
     "gulp-coveralls": "0.1.4",
     "gulp-eslint": "1.0.0",
