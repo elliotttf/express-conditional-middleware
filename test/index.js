@@ -2,7 +2,7 @@ var conditional = require('../lib/conditional.js');
 
 module.exports = {
   bool: function (test) {
-    test.expect(2);
+    test.expect(3);
 
     var middleware = conditional(true, function () {
       test.ok(true, 'true conditional worked.');
@@ -18,12 +18,22 @@ module.exports = {
 
     middleware({}, {}, function () {
       test.ok(true, 'false conditional worked.');
+    });
+
+    middleware = conditional(false, function () {
+      test.done();
+    }, function () {
+      test.ok(true, 'fail conditional worked.');
+      test.done();
+    });
+
+    middleware({}, {}, function () {
       test.done();
     });
   },
 
   func: function (test) {
-    test.expect(2);
+    test.expect(3);
 
     var conditionFunc = function (req) {
       return req.working === true;
@@ -49,6 +59,20 @@ module.exports = {
 
     middleware({working: false}, {}, function () {
       test.ok(true, 'Conditional function returned false.');
+    });
+
+    middleware = conditional(
+      conditionFunc,
+      function () {
+        test.done();
+      },
+      function () {
+        test.ok(true, 'Conditional function returned false, executed otherwise.');
+        test.done();
+      }
+    );
+
+    middleware({working: false}, {}, function () {
       test.done();
     });
   },
