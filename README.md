@@ -22,5 +22,18 @@ app.use(conditional(
     // ...
   }
 ));
+
+// Failure middleware.
+app.use(conditional(
+  function (req, res, next) {
+    return req.get('accept') === 'application/json';
+  },
+  function (req, res, next) {
+    // Executed if 'accept' === 'application/json'
+  },
+  function (req, res, next) {
+    // Executed if 'accept' !== 'application/json'
+  }
+));
 ```
 
