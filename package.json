@@ -5,25 +5,27 @@
   "repository": "https://github.com/elliotttf/express-conditional-middleware",
   "main": "lib/conditional.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "istanbul cover --print both nodeunit ./test/index.js",
+    "lint": "eslint .",
+    "coverage": "istanbul check-coverage --statements 100 --lines 100 --branches 100 --functions 100",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "author": "Elliott Foster <elliottf@codebrews.com> (http://codebrews.com/)",
   "license": "MIT",
+  "dependencies": {
+    "once": "1.3.3"
+  },
   "devDependencies": {
-    "ghooks": "0.3.2",
-    "gulp": "3.9.0",
-    "gulp-coveralls": "0.1.4",
-    "gulp-eslint": "1.0.0",
-    "gulp-istanbul": "0.8.1",
-    "gulp-nodeunit": "0.0.5"
+    "coveralls": "^2.11.6",
+    "eslint": "^2.2.0",
+    "ghooks": "^1.0.1",
+    "istanbul": "^0.4.2",
+    "nodeunit": "^0.9.1"
   },
   "config": {
     "ghooks": {
-      "pre-commit": "gulp lint",
-      "pre-push": "gulp test"
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
     }
-  },
-  "dependencies": {
-    "once": "1.3.3"
   }
 }

@@ -1,13 +1,13 @@
 {
   "env": {
     "browser": false,
-    "node": true
+    "node": true,
+    "es6": true
   },
   "rules": {
     "block-scoped-var": 2,
     "camelcase": 2,
     "comma-dangle": [2, "never"],
-    "comma-dangle": 2,
     "complexity": 2,
     "consistent-return": 2,
     "curly": 2,
@@ -17,6 +17,8 @@
     "eol-last": 2,
     "eqeqeq": 2,
     "guard-for-in": 2,
+    "indent": [2, 2],
+    "keyword-spacing": 2,
     "no-alert": 2,
     "no-caller": 2,
     "no-div-regex": 2,
@@ -62,13 +64,12 @@
     "no-warning-comments": 1,
     "quotes": [2, "single"],
     "radix": 2,
-    "space-after-keywords": [2, "always"],
     "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
     "space-infix-ops": 2,
     "object-curly-spacing": [2, "never"],
     "array-bracket-spacing": [2, "never"],
     "space-unary-ops": [1, { "words": true, "nonwords": false }],
-    "strict": [1, "never"],
+    "strict": [0, "never"],
     "use-isnan": 2,
     "valid-jsdoc": [2, {"requireReturn": false}],
     "valid-typeof": 2,
