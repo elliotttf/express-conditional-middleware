@@ -13,7 +13,7 @@
   "author": "Elliott Foster <elliottf@codebrews.com> (http://codebrews.com/)",
   "license": "MIT",
   "dependencies": {
-    "once": "1.3.3"
+    "once": "1.4.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.6",
