@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "coveralls": "^2.11.6",
-    "eslint": "^2.2.0",
+    "eslint": "^2.2.0 <3",
     "ghooks": "^1.2.4",
     "istanbul": "^0.4.2",
     "nodeunit": "^0.10.2"
@@ -27,5 +27,8 @@
       "pre-commit": "npm run lint",
       "pre-push": "npm test"
     }
+  },
+  "engines": {
+    "node": ">=0.12"
   }
 }
