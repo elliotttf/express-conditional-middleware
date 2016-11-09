@@ -1,2 +1,5 @@
+# node_modules ignored by default
+
+# Ignore generated files
 coverage
-newrelic.js
+.nyc_output

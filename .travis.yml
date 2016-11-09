@@ -1,9 +1,20 @@
-language: node_js
 sudo: false
+language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
 node_js:
-  - "0.12"
-  - "4"
-  - "node"
-script: npm test && npm run coverage
-after_success: npm run coveralls
-
+  - '6'
+before_install:
+  - npm i -g npm@^2.0.0
+before_script:
+  - npm prune
+script: npm run lint && npm t
+after_success:
+  - npm run coveralls
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
