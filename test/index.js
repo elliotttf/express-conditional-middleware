@@ -1,105 +1,85 @@
-var conditional = require('../lib/conditional.js');
+'use strict';
+
+const conditional = require('../lib/conditional.js');
 
 module.exports = {
-  bool: function (test) {
+  bool(test) {
     test.expect(3);
 
-    var middleware = conditional(true, function () {
+    let middleware = conditional(true, () => {
       test.ok(true, 'true conditional worked.');
     });
 
-    middleware({}, {}, function () {
+    middleware({}, {}, () => {
       test.done();
     });
 
-    middleware = conditional(false, function () {
+    middleware = conditional(false, () => {
       test.done();
     });
 
-    middleware({}, {}, function () {
+    middleware({}, {}, () => {
       test.ok(true, 'false conditional worked.');
     });
 
-    middleware = conditional(false, function () {
+    middleware = conditional(false, () => {
       test.done();
-    }, function () {
+    }, () => {
       test.ok(true, 'fail conditional worked.');
       test.done();
     });
 
-    middleware({}, {}, function () {
+    middleware({}, {}, () => {
       test.done();
     });
   },
 
-  func: function (test) {
+  func(test) {
     test.expect(3);
 
-    var conditionFunc = function (req) {
-      return req.working === true;
-    };
+    const conditionFunc = req => req.working === true;
 
-    var middleware = conditional(
-      conditionFunc,
-      function () {
-        test.ok(true, 'Conditional function returned true.');
-      }
-    );
+    let middleware = conditional(conditionFunc, () => test.ok(true,
+      'Conditional function returned true.'));
 
-    middleware({working: true}, {}, function () {
-      test.done();
-    });
+    middleware({ working: true }, {}, () => test.done());
 
-    middleware = conditional(
-      conditionFunc,
-      function () {
-        test.done();
-      }
-    );
+    middleware = conditional(conditionFunc, () => test.done());
 
-    middleware({working: false}, {}, function () {
+    middleware({ working: false }, {}, () => {
       test.ok(true, 'Conditional function returned false.');
     });
 
-    middleware = conditional(
-      conditionFunc,
-      function () {
-        test.done();
-      },
-      function () {
-        test.ok(true, 'Conditional function returned false, executed otherwise.');
-        test.done();
-      }
-    );
+    middleware = conditional(conditionFunc, () => test.done(), () => {
+      test.ok(true, 'Conditional function returned false, executed otherwise.');
+      test.done();
+    });
 
-    middleware({working: false}, {}, function () {
+    middleware({ working: false }, {}, () => {
       test.done();
     });
   },
 
-  funcOnce: function (test) {
+  funcOnce(test) {
     test.expect(2);
 
-    var count = 0;
+    let count = 0;
 
-    var conditionFunc = function (req, res, next) {
+    const conditionFunc = (req, res, next) => {
       next();
       return true;
     };
 
-    var middleware = conditional(
-      conditionFunc,
-      function (req, res, next) {
-        test.ok(true, 'Conditional executed.');
-        next();
-        test.done();
-      }
-    );
+    const middleware = conditional(conditionFunc, (req, res, next) => {
+      test.ok(true, 'Conditional executed.');
+      next();
+      test.done();
+    });
 
-    middleware({}, {}, function () {
-      count++;
+    middleware({}, {}, () => {
+      count += 1;
       test.equal(count, 1, 'Middleware only executed once.');
     });
-  }
+  },
 };
 
