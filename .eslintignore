@@ -2,4 +2,3 @@
 
 # Ignore generated files
 coverage
-.nyc_output
