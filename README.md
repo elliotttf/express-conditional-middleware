@@ -1,5 +1,7 @@
 # Express Conditional Middleware
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/elliotttf/express-conditional-middleware.svg)](https://greenkeeper.io/)
+
 [![travis build](https://travis-ci.org/elliotttf/express-conditional-middleware.svg?branch=master)](https://travis-ci.org/elliotttf/express-conditional-middleware)
 [![Coverage Status](https://coveralls.io/repos/elliotttf/express-conditional-middleware/badge.svg?branch=master)](https://coveralls.io/r/elliotttf/express-conditional-middleware?branch=master)
 
