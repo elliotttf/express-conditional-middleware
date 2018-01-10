@@ -7,14 +7,12 @@ notifications:
   email: false
 node_js:
   - '6'
-before_install:
-  - npm i -g npm@^2.0.0
-before_script:
-  - npm prune
-script: npm run lint && npm t
+script:
+  - yarn lint
+  - yarn test
 after_success:
-  - npm run coveralls
-  - npm run semantic-release
+  - yarn coveralls
+  - yarn semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
