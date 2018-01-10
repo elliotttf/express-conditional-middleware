@@ -34,6 +34,18 @@ module.exports = {
     });
   },
 
+  boolAdditional(test) {
+    test.expect(2);
+    const middleware = conditional(true, (req, res, next, extra) => {
+      test.ok(true, 'true conditional worked.');
+      test.equal(extra, 'extra received');
+      next();
+    });
+    middleware({}, {}, () => {
+      test.done();
+    }, 'extra received');
+  },
+
   func(test) {
     test.expect(3);
 
@@ -82,4 +94,3 @@ module.exports = {
     });
   },
 };
-
