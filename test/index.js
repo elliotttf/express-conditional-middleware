@@ -72,6 +72,17 @@ module.exports = {
     });
   },
 
+  funcAdditional(test) {
+    const conditionFunc = (req, res, next, extra) => extra === true;
+
+    const middleware = conditional(conditionFunc, (req, res, next) => {
+      test.ok(true, 'Conditional function returned true.');
+      next();
+    });
+
+    middleware({ working: true }, {}, () => test.done(), true);
+  },
+
   funcOnce(test) {
     test.expect(2);
 
